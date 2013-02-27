@@ -1,0 +1,36 @@
+﻿@model CinemaCommon.Entities.Cinema
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Cinema</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasRooms)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HasRooms)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalIncome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalIncome)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.CinemaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

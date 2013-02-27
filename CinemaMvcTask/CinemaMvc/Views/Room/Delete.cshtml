@@ -1,0 +1,75 @@
+﻿@model CinemaCommon.Entities.Room
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Room</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaxSeats)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaxSeats)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReservedSeats)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReservedSeats)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cinema.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cinema.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Movie.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Movie.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasMovie)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HasMovie)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasFreeSeats)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HasFreeSeats)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Income)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Income)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

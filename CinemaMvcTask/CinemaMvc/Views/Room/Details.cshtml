@@ -1,0 +1,71 @@
+﻿@model CinemaCommon.Entities.Room
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <h2 class="span12">Room</h2>
+</div>
+
+@*<fieldset>
+    <legend>Room</legend>*@
+    <div class="row">
+        <div class="label span2">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="display-field span9">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="label span2">
+            @Html.DisplayNameFor(model => model.Cinema.Name)
+        </div>
+        <div class="display-field span9">
+            @Html.DisplayFor(model => model.Cinema.Name)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="label span2">
+            @Html.DisplayNameFor(model => model.Movie.Name)
+        </div>
+        <div class="display-field span9">
+            @Html.DisplayFor(model => model.Movie.Name)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="label span2">
+            @Html.DisplayNameFor(model => model.MaxSeats)
+        </div>
+        <div class="display-field span9">
+            @Html.DisplayFor(model => model.MaxSeats)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="label span2">
+            @Html.DisplayNameFor(model => model.ReservedSeats)
+        </div>
+        <div class="display-field span9">
+            @Html.DisplayFor(model => model.ReservedSeats)
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="label span2">
+            @Html.DisplayNameFor(model => model.Income)
+        </div>
+        <div class="display-field span9">
+            @Html.DisplayFor(model => model.Income)
+        </div>
+    </div>
+@*</fieldset>*@
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

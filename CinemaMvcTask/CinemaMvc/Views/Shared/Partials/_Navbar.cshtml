@@ -1,0 +1,25 @@
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"] as string ?? "Home";
+    var activeCinemaClass = currentController == "Cinema" ? "active" : "";
+    var activeRoomClass = currentController == "Room" ? "active" : "";
+    var activeMovieClass = currentController == "Movie" ? "active" : "";
+}
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav nav-pills">
+                    <li class="@activeCinemaClass">@Html.ActionLink("Cinemas", "Index", new { controller = "Cinema" })</li>
+                    <li class="@activeRoomClass">@Html.ActionLink("Rooms", "Index", new { controller = "Room" })</li>
+                    <li class="@activeMovieClass">@Html.ActionLink("Movies", "Index", new { controller = "Movie" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
