@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaCommon", "Cinema.Common\CinemaCommon.csproj", "{69785631-D430-48C3-A22B-4FF4336FE8D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaMvc", "CinemaMvc\CinemaMvc.csproj", "{15412114-79F9-4FE8-9802-778A291F3362}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69785631-D430-48C3-A22B-4FF4336FE8D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69785631-D430-48C3-A22B-4FF4336FE8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69785631-D430-48C3-A22B-4FF4336FE8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69785631-D430-48C3-A22B-4FF4336FE8D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15412114-79F9-4FE8-9802-778A291F3362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15412114-79F9-4FE8-9802-778A291F3362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15412114-79F9-4FE8-9802-778A291F3362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15412114-79F9-4FE8-9802-778A291F3362}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
