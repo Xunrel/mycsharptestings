@@ -13,8 +13,8 @@
             } catch(e) {
 
             } 
-            var roomId = $thisBtn.prev().prev().val();
-            var seatsValue = $thisBtn.prev().val();
+            var roomId = $thisBtn.prevAll('input#item_RoomId').val();
+            var seatsValue = $thisBtn.prevAll('input.addRemoveInput').val();
 
             $.ajax({
                 url: '/Room/AddRemovePersons',
