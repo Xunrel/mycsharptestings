@@ -58,9 +58,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestSyndication.cs" />
+    <Compile Include="SyndicationConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
