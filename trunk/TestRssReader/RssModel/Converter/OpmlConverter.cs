@@ -7,6 +7,7 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
 using RssModel.Model;
 
 namespace RssModel.Converter
@@ -57,6 +58,7 @@ namespace RssModel.Converter
         public IEnumerable<SyndicationFeed> ConvertSyndication()
         {
             var channels = new List<SyndicationFeed>();
+            IEnumerable<XElement> syndicationFeeds;
             using (_opmlReader = XmlReader.Create(_filePath))
             {
                 while (_opmlReader.Read())
@@ -67,11 +69,19 @@ namespace RssModel.Converter
                     var nodeName = _opmlReader.Name;
                     if (nodeType == XmlNodeType.Element && nodeName == "outline" && _opmlReader.HasAttributes)
                     {
-                        Uri uriOut = null;
-                        Uri.TryCreate(_opmlReader.GetAttribute("xmlUrl"), UriKind.Absolute, out uriOut);
-                        channels.Add(new SyndicationFeed(_opmlReader.GetAttribute("title"),
-                                                         _opmlReader.GetAttribute("title"),
-                                                         uriOut));
+                        var url = _opmlReader.GetAttribute("xmlUrl");
+                        var doc = XDocument.Load(url);
+                        var rssChannel = (from el in doc.Elements("rss").Elements("channel")
+                                          select el).First();
+
+                        var rssTitle = rssChannel.Element("title");
+                        var rssDescription = rssChannel.Element("description");
+                        if (rssTitle != null && rssDescription != null)
+                        {
+                            channels.Add(new SyndicationFeed(rssTitle.Value,
+                                                             rssDescription.Value,
+                                                             new Uri(url)));
+                        }
                     }
                 }
             }
