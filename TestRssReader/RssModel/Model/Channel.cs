@@ -10,13 +10,13 @@ namespace RssModel.Model
         public string Link { get; set; }
         public string Description { get; set; }
 
-        public IList<Post> Posts { get; set; }
+        public IList<IPost> Posts { get; set; }
 
         public Channel()
         {
             if (Posts == null)
             {
-                Posts = new List<Post>();
+                Posts = new List<IPost>();
             }
         }
     }

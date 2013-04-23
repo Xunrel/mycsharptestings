@@ -16,7 +16,7 @@ namespace RssModel
     {
         #region Properties
 
-        public IList<Channel> Channels { get; set; }
+        public IList<IChannel> Channels { get; set; }
 
         public string SubscriptionPath { get; set; }
 
@@ -29,7 +29,7 @@ namespace RssModel
         {
             if (Channels == null)
             {
-                Channels = new List<Channel>();
+                Channels = new List<IChannel>();
             }
             if (!string.IsNullOrEmpty(subscriptionPath))
             {
@@ -54,7 +54,7 @@ namespace RssModel
             }
         }
 
-        public Channel GetChannel(string url)
+        public IChannel GetChannel(string url)
         {
             var doc = new XmlDocument();
             try
@@ -125,7 +125,7 @@ namespace RssModel
             return channel;
         }
 
-        public IEnumerable<Channel> GetSubscriptionChannels()
+        public IEnumerable<IChannel> GetSubscriptionChannels()
         {
             if (!string.IsNullOrEmpty(SubscriptionPath))
             {
