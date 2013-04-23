@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using RssModel.Interfaces;
 
 namespace RssModel.Model
 {
-    public class Channel
+    public class Channel : IChannel
     {
         public string Title { get; set; }
         public string Link { get; set; }
