@@ -8,6 +8,6 @@ namespace RssModel.Interfaces
         string Title { get; set; }
         string Link { get; set; }
         string Description { get; set; }
-        IList<Post> Posts { get; set; }
+        IList<IPost> Posts { get; set; }
     }
 }
