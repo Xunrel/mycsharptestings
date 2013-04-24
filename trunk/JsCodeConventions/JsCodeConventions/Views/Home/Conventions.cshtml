@@ -1,0 +1,425 @@
+﻿@{
+    ViewBag.Title = "Konventionen 101";
+}
+
+<div class="span9">
+    <h2>@ViewBag.Title</h2>
+    <h3 id="names">Namensrichtlinien</h3>
+    <h5>Klassen und Konstruktoren</h5>
+    <p>
+        Klassennamen sollten in JavaScript, wie auch in C#, im PascalCase geschrieben werden.
+    </p>
+        <pre class="prettyprint">
+var MyClass = function MyClass() { ... }
+</pre>
+    
+    <h5>Properties und Funktionen</h5>
+    <p>
+        Funktionen können folgendermaßen deklariert werden:
+    </p>
+    <pre class="prettyprint">
+<span class="label label-info">anonymous function</span>
+var myMethod = function() { ... }
+
+<span class="label label-info">named function</span>
+var myMethod = function myMethod() { ... }
+
+<span class="label label-info">Immediately-Invoked Function Expression (IIFE)</span>
+(function() {
+    ...
+})();
+</pre>
+    <p>
+        Properties und Funktionen werden immer in camleCase geschrieben.
+    </p>
+    <pre class="prettyprint">
+var myMethod = function myMethod() {
+    var myProperty;
+}
+</pre>
+    <p>
+        Private Properties werden mit einem vorangestellten Unterstrich geschrieben.
+    </p>
+        <pre class="prettyprint">
+var MyClass = function MyClass() {
+    var _myPrivateProperty;
+}
+</pre>
+    
+    <h3 id="declarations">Deklarationen</h3>
+    <h5>Variablen</h5>
+    <p>
+        Für die Deklarationen von Variablen sollte man immer die "literal syntax" verwenden.
+        Nutzt man bspw. für die Deklaration einer String-Variablen "new String('mein string')", so ist der Typ dieser Variable 'object'. 
+        Variablen immer mit dem Schlüsselwort 'var' beginnen, andernfalls ist die Variable global sichtbar. 
+        Wenn man mehrere Variablen hintereinander deklariert, genügt es das Schlüsselwort 'var' einmal zu schreiben, 
+        die Variablen mit einem Komma und anschließender neuen Zeile zu trennen und abschließend mit einem Semikolon 
+        die Deklarationen zu beenden. Dabei sollte beachtet werden, dass Variablen mit einem Initialwert vor Variablen ohne Initialwert stehen sollten.<br/>
+        <span class="label label-info">Anmerkung:</span> Man kann natürlich auch bei jeder neuen Zeile das Schlüsselwort 'var' nutzen.
+    </p>
+        <pre class="prettyprint">
+var items = getItems(),
+    isAvailable = true,
+    myProperty,
+    anotherProperty;
+</pre>
+    <p>
+        <span class="label label-info">Object</span>
+    </p>
+    <pre class="prettyprint">
+<span class="label label-success">Good</span>
+var myObject = {};
+<span class="label label-important">Bad</span>
+var myObject = new Object();
+            </pre>
+
+    <p>
+        <span class="label label-info">Array</span>
+    </p>
+    <pre class="prettyprint">
+<span class="label label-success">Good</span>
+var myArray = [];
+<span class="label label-important">Bad</span>
+var myArray = new Array();
+            </pre>
+    
+    <p>
+        <span class="label label-info">Strings</span>
+    </p>
+    <pre class="prettyprint">
+<span class="label label-success">Good</span>
+var myString = 'Mein String';
+<span class="label label-important">Bad</span>
+var myString = new String('Mein String');
+            </pre>
+    <p>
+        Zusätzlich sollten Strings bei der Deklaration stets Single-Quotations (' ') haben.
+    </p>
+
+    <span class="label label-info">Numbers</span>
+    <ul>
+        <li>Integers
+            <ul>
+                <li>
+                    Dezimal (Base 10) -> 0, 42, -1178 
+                </li>
+                <li>
+                    Hexadezimal (Base 16) -> Vorangestelltes 0x (bzw. 0X) = 0x1123, -0XF1A6
+                    <ul>
+                        <li>Zahlen von 0 bis 9</li>
+                        <li>Buchstaben von a bis f oder A bis F</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+            
+        <li>Floats
+            <ul>
+                <li>Fließkommazahlen werden mit einem Punkt (.) separiert -> 0.4, -,175</li>
+                <li>Kann Exponenten (e oder E) haben -> -3.1, 2E-12, -3.1E7, .4e12</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h5>Funktionen</h5>
+    <p>
+        Es gibt drei Arten von Funktions-Deklarationen
+    </p>
+    <pre class="prettyprint">
+<span class="label label-info">Anonym</span>
+var anonymousFunction = function() { ... }
+
+<span class="label label-info">Named function</span>
+var namedFunction = function namedFunction() { ... }
+
+<span class="label label-info">Immidiatly-invoked function expression (IIFE)</span>
+(function() {
+    ...
+})();
+</pre>
+    <p>
+        Funktions-Deklarationen sollten niemals in Nicht-Funktions-Blöcken deklariert werden.
+    </p>
+    <pre class="prettyprint">
+<span class="label label-important">Bad</span>
+if(currentuser) {
+    function test() { ... }
+}
+</pre>
+    <p>
+        Als Parameternamen sollte man nie reservierte Wörter oder Objekte nutzen (<a href="http://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words">Reserved Words in der MDN</a>).
+    </p>
+
+    <h5>Klassen (Prototyping)</h5>
+    <pre class="prettyprint">
+var BaseClass = function BaseClass() {
+    var self = this;
+    self.myVariable = 'stringVar';
+}
+BaseClass.prototype.myMethod = function() { ... };
+</pre>
+    
+    <h5>Hinweise</h5>
+    <p>
+        <span class="label label-info">Hinweis zu named functions</span><br/>
+        Named functions können evtl. fehlerhaft in niedrigeren Versionen als IE9 sein.
+    </p>
+    <p>
+        <span class="label label-info">Hoisting</span><br/>
+        Sowohl Variablen und Funktionen werden 'gehoistet'. D.h. dass der Name der Variable/Funktion am Anfang ihres Blocks steht, jedoch nicht ihre Deklaration.
+    </p>
+    <pre class="prettyprint">
+function hoisting() {
+    console.log(hoistedVar); // => undefined
+    var hoistedVar = true;
+}
+
+<span class="label label-info">wird umgeschrieben zu</span>
+
+function hoisting() {
+    var hoistedVar;
+    console.log(hoistedVar); // => undefined
+    hoistedVar = true;
+}
+</pre>
+    <p>
+        <span class="label label-important">Ausnahme</span><br/>
+        Eine einfache Funktions-Deklaration wird mitsamt seinem Funktions-Körper gehoistet.
+    </p>
+    <pre class="prettyprint">
+function hoisting() {
+    hoistedFunction(); // => hoisted
+
+    function hoistedFunction() {
+        console.log('hoisted');
+    }
+}
+</pre>
+    
+    <h3 id="expressions">Conditional Expressions</h3>
+    <p>
+        Bei der Konditionsprüfung sollte man immer === oder !== nutzen. Wenn man nur == nutzt, so wird keine 'Typ-Sicherheit' gewährleistet (ergo: 1 == '1' ergibt true).
+        Da Konditionsprüfungen in JavaScript zwangsmäßig die interne ToBoolean Methode nutzen kann man sogenannte Shortcuts nutzen.
+        Dies resultiert aus folgender Übersicht:<br/>
+        <span class="label label-info">Objects</span> liefern <b>true</b><br/>
+        <span class="label label-info">Undefined</span> und Null liefern <b>false</b><br/>
+        <span class="label label-info">Booleans</span> liefern ihren jeweiligen Wert<br />
+        <span class="label label-info">Numbers</span>
+    </p>
+    <ul>
+        <li>+/- 0 und NaN liefern false</li>
+        <li>Alle anderen Zahlen liefern true</li>
+    </ul>
+    <p>
+        <span class="label label-info">Strings</span>
+    </p>
+    <ul>
+        <li>Leerstring liefert false</li>
+        <li>Alle anderen Strings liefern true</li>
+    </ul>
+    <pre class="prettyprint">
+<span class="label label-success">Good</span>
+if(name) { ... }
+if(collection.length) { ... }
+
+<span class="label label-important">Bad</span>
+if(name !== '') { ... }
+if(collection.length > 0) { ... }
+</pre>
+    
+    <h3 id="whitespaces">Whitespaces, Kommata etc.</h3>
+    <p>
+        Für das Intendieren sollte man durchgehend entweder zwei oder vier Spaces nutzen.<br/>
+        Vor jeder geschweifter Klammer sollte ein Space sein.<br/>
+        Kommata nie am Anfang einer Zeile verwenden.<br/>
+        Man kann vor einer IIFE ein Semikolon schreiben, um mögliches Fehlverhalten vorangehenden JavaScript Codes zu umgehen.<br/>
+    </p>
+    <pre class="prettyprint">
+;(function() {
+    var name = 'Skywalker';
+    return name;
+})();
+</pre>
+    <p>
+        Wird Method-Chaining angewendet, sollte man intendieren.
+    </p>
+    <pre class="prettyprint">
+<span class="label label-important">Bad</span>
+$('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+<span class="label label-success">Good</span>
+$('#items')
+.find('.selected')
+    .highlight()
+    .end()
+.find('.open')
+    .updateCount();
+</pre>
+
+    <h3 id="type-casting">Type-Casting</h3>
+    <p>
+        Folgende Richtlinien sollten beim Casten beachtet werden.
+    </p>
+    <h5>Number to String</h5>
+    <pre class="prettyprint">
+<span class="label label-success">Good</span>
+var score= 9;
+var stringScore = '' + score;
+var stringScore = score + ' total score.';
+
+<span class="label label-important">Bad</span>
+var stringScore = score + '';
+var stringScore = '' + score + ' total score.';
+</pre>
+    
+    <h5>String to Number</h5>
+    <pre class="prettyprint">
+<span class="label label-success">Good</span>
+var inputValue = ‘42’;
+var value = Number(inputValue);
+var value = parseInt(inputValue, 10); // param1: Wert; param2: Basis (hier: Dezimal)
+
+<span class="label label-important">Bad</span>
+var value = new Number(inputValue); // Resultat ist ein Objekt
+var value = +inputValue; // möglich, aber nicht direkt erkenntlich
+</pre>
+    <p>
+        Normalerweise sollte man Bitshifting nicht verwenden. Sollte aber der seltene Fall eintreten, 
+        dass parseInt(value, base) zu performance-lastig  ist, kann man dies verwenden, jedoch bitte kommentieren.
+    </p>
+    <pre class="prettyprint">
+/**
+ * parseInt was the reason my code was slow.
+ * Bitshifting the String to coerce it to a
+ * Number made it a lot faster.
+ */
+var value = inputVal >> 0;
+</pre>
+    
+    <h5>To Boolean</h5>
+    <pre class="prettyprint">
+var someNumber = 1;
+var hasSomeNumber = Boolean(someNumber);
+</pre>
+    <p>
+        Es ist auch möglich die doppelte Negierung der Variablen zu nutzen, da die interne ToBoolean Methode genutzt wird bei Konditionsüberprüfungen.
+    </p>
+    <pre class="prettyprint">
+var hasSomeNumber = !!someNumber;
+</pre>
+    
+    <h3 id="scopes">Scopes</h3>
+    <h5>Function Scope</h5>
+    <p>
+        Im Gegensatz zu anderen Programmiersprachen besitzt JavaScript keinen Block Scope, sondern Function Scope.
+    </p>
+    <pre class="prettyprint">
+(function() {
+    if(true) {
+        var a = 5;
+    }
+alert(a);
+})();
+</pre>
+    <p>
+        Dieses Beispiel liefert, wie vermutlich unerwartet, einen Alert mit 5 zurück. Erst außerhalb der Funktion ist die Variable a nicht mehr bekannt.
+        Selbst wenn die if-Bedingung false wäre, würde man immerhin undefined (Variable a existiert, aber noch ohne Wert) erhalten und 
+        kein ReferenceError, wie man vermuten würde. Dies liegt am hoisting, weshalb die Funktion folgendermaßen gelesen werden kann:
+    </p>
+    <pre class="prettyprint">
+(function() {
+    var a;
+    if(true) {
+        a = 5;
+    }
+    alert(a);
+})();
+</pre>
+    
+    <h5>Global Scope</h5>
+    <p>
+        Sollte man innerhalb einer Funktion vergessen eine Variable mit var zu benennen, so wird diese Variable im Global Scope verfügbar sein.
+    </p>
+    <pre class="prettyprint">
+(function globalTest() {
+    if(true) {
+        a = 42;
+    }
+})();
+alert(a);
+</pre>
+    <p>
+        Da in der Funktion globalTest vergessen wurde vor a das Schlüsselwort 'var' zu schreiben, ist die Variable a im Global Scope verfügbar. Der Global Scope ist im JavaScript das 'window'-Objekt.
+        Anders als im Function Scope wirft alert(a) ein ReferenceError, wenn die if-Bedingung false ist.
+    </p>
+    
+    <h5>Scope Beispiele</h5>
+    <pre class="prettyprint">
+var a = 2;
+function doSomething() {
+    var a = 34;
+    alert(a); // gibt 34 zurück
+}
+alert(a); // gibt 2 zurück
+</pre>
+    <p>
+        Eine gute Erklärung gibt es hier: <a href="http://madebyknight.com/javascript-scope" target="_blank">JavaScript Scope</a>
+    </p>
+    
+    <h5>this</h5>
+    <p>
+        Das Schlüsselwort 'this' referenziert sich aufgrund der Scopes in JavaScript auf unterschiedliche Objekte.
+    </p>
+    <pre class="prettyprint">
+(function() {
+    // this im globalem Scope bezieht sich auf Window
+    console.log(this); // Window
+    
+    // this in einer function Deklaration bezieht sich auf Window
+    function doSomeStuff() {
+        console.log(this); // Window
+    }
+    
+    // this bezieht sich hier auf das Objekt (hier: Klasse) selber
+    var MyClass = function MyClass() {
+        console.log(this) // MyClass
+        this.a = 'new a';
+        this.doSomething = function doSomething() {
+            console.log(this.a); // 'new a'
+        }
+    };
+    
+    doSomeStuff();
+    var c = new MyClass();
+    c.doSomething();
+})();
+</pre>
+    <p>
+        Damit man mit dem Schlüsselwort 'this' vernünftig arbeiten kann, sollte man vor allem bei Klassendefinitionen eine eigene Variable definieren.
+    </p>
+    <pre class="prettyprint">
+var MyClass = function MyClass() {
+    var self = this;
+    console.log(self) // MyClass
+    self.a = 'new a';
+    self.doSomething = function doSomething() {
+        console.log(self.a); // 'new a'
+    }
+};
+</pre>
+    <p>
+        Dies wird vor allem dann notwendig, wenn man mit anderen JavaScript Libraries (wie z.B. jQuery) arbeitet.
+    </p>
+</div>
+
+<div class="span3">
+    <ul class="nav nav-tabs nav-stacked affix">
+        <li><a href="#names">Namensrichtlinien</a></li>
+        <li><a href="#declarations">Deklarationen</a></li>
+        <li><a href="#expressions">Expressions</a></li>
+        <li><a href="#whitespaces">Whitespaces etc.</a></li>
+        <li><a href="#type-casting">Type-Casting</a></li>
+        <li><a href="#scopes">Scopes</a></li>
+    </ul>
+</div>
+
