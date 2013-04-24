@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Konventionen 201";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="span9">
+    <h2>@ViewBag.Title</h2>
+    <h3 id="jQuery">jQuery</h3>
+    <h5>Einbindung</h5>
+    <p>
+        Mit Hilfe von jQuery und dessen Selektoren kann man sehr einfach bestimmte 
+        Elemente innerhalb der DOM-Struktur finden und manipulieren, was ohne die 
+        Hilfe von jQuery zwar auch geht, jedoch teilweise sehr umständlich ist.
+    </p>
+    <p>
+        Damit man mit jQuery arbeiten kann, muss man als erstes die jQuery-Library 
+        in die Seite in den <span class="label">&lt;head&gt;</span>-Tag wie folgt einbinden:
+    </p>
+    <pre class="prettyprint">
+&lt;html&gt;
+    &lt;head&gt;
+        <span class="label label-info">Einbindung der jQuery Library</span>
+        &lt;script type="text/javascript" src="../path/to/jquery.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;!-- Restliches DOM wurde aus Gründen der Übersichtlichkeit entfernt. --&gt;
+&lt;/html&gt;
+</pre>
+    
+    <h5>Selektoren</h5>
+    <p>
+        Nun kann man entweder in der HTML-Datei selber oder in einer externen 
+        JavaScript-Datei die jQuery Library nutzen.
+        Um nun bspw. alle <span class="label">&lt;p&gt;</span>-Tags zu finden schreibt man $('p'), was soviel 
+        bedeutet wie: jQuery, gib mir alle DOM-Elemente mit dem Tag-Namen 'p'.
+    </p>
+    <p>
+        Das $-Zeichen steht in diesem Fall dafür, dass Funktionen von jQuery genutzt 
+        werden. Der folgende optionale Parameter ist der sogenannte Selektor und 
+        kann entweder der Name eines Tag-Elements <span class="label">&lt;TAG-NAME&gt;</span> sein, 
+        eine vergebene ID eines Tags <span class="label">&lt;div id="ID-NAME"&gt;</span> oder eine vergebene 
+        Klasse <span class="label">&lt;div class="CLASS-NAME"&gt;</span>.
+    </p>
+    <p>
+        Dementsprechend gibt es drei Notationen, wie man Elemente mit Hilfe der 
+        jQuery-Selektoren finden kann:
+    </p>
+    <pre>
+<span class="label label-info">Tag-Name</span>
+// Nur der Tag-Name (z.B. 'div' für alle &lt;div&gt;-Elemente)
+var $pTags = $('p');
+
+<span class="label label-info">Eindeutige ID</span>
+// ID mit voranschreitendem #
+var $myDiv = $('#myDiv');
+
+<span class="label label-info">Klassen-Name</span>
+// Klasse mit voranschreitendem .
+var $myClasses = $('.myClasses');
+</pre>
+    
+    <p>
+        Man kann auch Selektoren verknüpfen, wenn man bspw. &ouml;fters eine Klasse 
+        für mehrere Elemente benutzt, aber einigen dieser Elemente auch IDs vergibt.
+    </p>
+    <pre class="prettyprint">
+<span class="label label-info">Selektor-Kombination</span>
+var $importantDiv = $('div.redBorder#importantDiv');
+</pre>
+    
+    <p>
+        In diesem Beispiel wird nach dem div-Element gesucht, welches die Klasse 
+        "redBorder" hat und die ID "important" div. So würde nun also das Element 
+        <span class="label label-success">&lt;div class="redBorder" id="importantDiv"&gt;</span> 
+        selektiert werden, nicht jedoch 
+        <span class="label label-important">&lt;div class="redBorder" id="author"&gt;</span>.
+    </p>
+    <p></p>
+    <h5>Selektoren - die Zweite!</h5>
+    <p>
+        Neben der Selektion über IDs und Klassen-Namen hat man auch die Möglichkeit 
+        anhand der Attribute eines Elements zu suchen.
+    </p>
+    <pre class="prettyprint">
+<span class="label label-info">&lt;input value="5"&gt; ('equals')</span>
+var $valueFiveInputs = $('input[value="5"]');
+        
+<span class="label label-info">&lt;input value="anyFirstElement"&gt; ('contains')</span>
+var $valueFiveInputs = $('input[value*="First"]');
+        
+<span class="label label-info">&lt;input value="firstElement"&gt; ('startsWith')</span>
+var $valueFiveInputs = $('input[value^="first"]');
+        
+<span class="label label-info">&lt;input value="thisOneAtLast"&gt; ('endsWith')</span>
+var $valueFiveInputs = $('input[value$="Last"]');
+</pre>
+    
+    <p>
+        Über diese Attribut-Selektoren hinaus gibt es noch weitere Attribut Selektoren 
+        und können natürlich auch für andere Attribute eines Tags verwendet werden.
+    </p>
+    <p>
+        Darüber hinaus gibt es auch Pseudo-Selektoren, wie auch in CSS.
+    </p>
+    <pre class="prettyprint">
+// Suche alle Input-Elemente, die als Attribut 'checked' den Wert 'checked' haben
+// (also alle Checkbox-Inputs, die ausgewählt worden sind)
+var $checkedInputs = $('input:checked');
+</pre>
+    
+    <h5>Konvention</h5>
+    <p>
+        Damit man in seinem Code erkennen kann, ob die gerade verwendete Variable 
+        einen einfachen Wert oder ein mit jQuery selektiertes Element (bzw. Element-Array) 
+        ist, sollte man den Variablen-Namen mit einem voranschreitendem $-Zeichen 
+        kennzeichnen.
+    </p>
+    <p>
+        Grund dafür ist, dass man an einem jQuery-Element(-Array) weitere jQuery-Funktionen 
+        nutzen kann (siehe dazu <a href="Conventions#whitespaces">'Method-Chaining'</a>).
+    </p>
+
+
+    <h3 id="events">Events</h3>
+    <p>
+        Im Laufe eines Projektes kann es unter Umständen notwendig sein, dass 
+        man auf bestimmte Ereignisse in der Applikation client-seitig achtet.
+    </p>
+    
+    <h3 id="requireJs">RequireJS</h3>
+    <p>
+        
+    </p>
+    
+    <h3 id="knockoutJs">KnockoutJS</h3>
+    <p>
+        
+    </p>
+</div>
+
+<div class="span3">
+    <ul class="nav nav-tabs nav-stacked affix">
+        <li><a href="#jQuery">jQuery</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#requireJs">RequireJS</a></li>
+        <li><a href="#knockoutJs">knockoutJS</a></li>
+    </ul>
+</div>
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Demos/conventions2.js")"></script>
+}

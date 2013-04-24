@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "CoffeeScript";
+}
+<div class="span9">
+    <h2>@ViewBag.Title</h2>
+    <p>
+        Die Syntax für CoffeeScript findet man unter <a href="http://coffeescript.org/">http://coffeescript.org/</a>
+    </p>
+    <h3>Generelle Hinweise</h3>
+    <p>
+        Es werden kaum Klammern benötigt.<br/>
+        Statt 'alert(a)' kann man auch 'alert a' schreiben.<br/>
+        Geschweifte Klammern werden grundsätzlich nicht benötigt.<br/>
+        Diese werden durch das Intendieren verdeutlicht.<br/>
+    </p>
+    <pre class="prettyprint">
+myObject =
+    test: 1
+    test2: 2
+
+<span class="label"> wird zu</span>
+
+myObject = {
+    test: 1,
+    test2: 2
+};
+</pre>
+    
+    <p>
+        Das Schlüsselwort 'var' wird automatisch vom CoffeeScript-Compiler hinzugefügt und das Hoisting wird dabei beachtet.
+    </p>
+    
+    <p>
+        Wird innerhalb einer Intendierung kein 'return' genutzt, so wird die letzte Zeile zurückgegeben. 
+        Will man dies verhindern (ergo kein return-Statment haben wollen) muss man in der nachfolgenden Zeile nur das Schlüsselwort 'return' schreiben.
+    </p>
+
+    <p>
+        Anstelle der JavaScript Vergleichs-Operatoren sollten die CoffeeScript Äquivalente genutzt warden.
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td><b>CoffeeScript</b></td>
+                <td><b>JavaScript</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>is</td>
+                <td>===</td>
+            </tr>
+            <tr>
+                <td>isnt</td>
+                <td>!==</td>
+            </tr>
+            <tr>
+                <td>not</td>
+                <td>!</td>
+            </tr>
+            <tr>
+                <td>and</td>
+                <td>&&</td>
+            </tr>
+            <tr>
+                <td>or</td>
+                <td>||</td>
+            </tr>
+            <tr>
+                <td>true, yes, on</td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td>false, no, off</td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td>@@, this</td>
+                <td>this</td>
+            </tr>
+            <tr>
+                <td>of</td>
+                <td>in</td>
+            </tr>
+            <tr>
+                <td>in</td>
+                <td>Kein Äquivalent</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

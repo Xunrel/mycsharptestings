@@ -1,0 +1,232 @@
+﻿@{
+    ViewBag.Title = "Klassen";
+}
+<div class="span9">
+    <h2>@ViewBag.Title</h2>
+    <p>
+        JavaScript besitzt keine Klassen im üblichen Sinne wie objekt-orientierte Programmiersprachen. 
+        Es arbeitet mit sogenannten Prototypes.<br/>
+        Jedes komplexe Objekt in JavaScript besitzt einen Prototype, welches eine Art "Hauptklasse" ist.
+    </p>
+    <p>
+        Nachfolgend ein Beispiel zur Erzeugung einer Basis-Klasse und einer Kind-Klasse in JavaScript.
+    </p>
+    <pre class="prettyprint">
+<span class="label label-info">Basis-Klasse</span>
+var Person = function() {
+    var self = this;
+    <span class="label label-info">Public properties</span>
+    self.age = 0;
+    self.fullName = 'unknown';
+}
+
+<span class="label label-info">Public Methode</span>
+Person.prototype.sayHello = function() {
+    var self = this;
+    alert(self.fullName + ' says "Hello!"');
+}
+
+<span class="label label-info">Employee Klasse, abgeleitet von Person</span>
+var Employee = function() {
+    var self = this;
+    <span class="label label-info">Konstruktor der Basis-Klasse aufrufen</span>
+    Person.call(self);
+    self.position = 'Position not assigned.';
+    self.age = 18;
+}
+
+<span class="label label-info">Diese Zeile entspricht dem 'implements' (Doppelpunkt) aus C#</span>
+Employee.prototype = Object.create(Person.prototype);
+
+<span class="label label-info">Public Methode von Employee</span>
+Employee.prototype.getInfo = function() {
+    var self = this;
+    alert('Name: ' + self.fullName + ', Age: ' + self.age + ', Position: ' + self.position);
+}
+
+<span class="label label-info">Neue Person erzeugen</span>
+var p = new Person();
+p.sayHello();
+
+<span class="label label-info">Neuen Employee erzeugen</span>
+var e = new Employee();
+e.fullName = 'John Doe';
+e.sayHello();
+e.getInfo();
+</pre>
+    <p></p>
+    <h5>ShowCase</h5>
+    <p id="classDemo" class="well">
+        <span class="span2">Person name:</span><input id="personName" type="text" /><br />
+        <span class="span2">Person age:</span><input id="personAge" type="text" /><br />
+        <span class="span2">Employee company:</span><input id="empCompany" type="text" /><br />
+        <span class="span2">Employee position:</span><input id="empPosition" type="text" /><br />
+        <span style="margin-left: 30px;">
+            <button id="createPerson" class="btn btn-inverse">Create Person</button>
+            <button id="createEmployee" class="btn btn-inverse">Create Employee</button>
+            <button id="clearInputs" class="btn btn-danger">Clear Inputs</button>
+        </span>
+    </p>
+    <h5>Output</h5>
+    <div id="classShowCase">
+        <h6>Person:</h6>
+        <div id="person" class="well well-small">
+            <div class="sayHello">
+                
+            </div>
+            <div class="toJson">
+                
+            </div>
+        </div>
+        <p></p>
+        <h6>Employee:</h6>
+        <div id="employee" class="well well-small">
+            <div class="sayHello">
+                
+            </div>
+            <div class="empInfo">
+                
+            </div>
+            <div class="toJson">
+                
+            </div>
+        </div>
+    </div>
+    <p></p>
+    <div>
+        <button id="showSource" class="btn btn-primary">Show Source</button>
+    </div>
+    <p></p>
+    <pre id="classJsSource">
+;(function($) {
+    $(document).ready(function() {
+        // Defining sayHello method
+        Person.prototype.sayHello = function() {
+            var self = this;
+            return 'Hello, my name is ' + this.pName + '. ' +
+                   'My age is ' + this.pAge;
+        };
+
+        // Defining employee class
+        var Employee = function() {
+            var self = this;
+
+            // Calling base class
+            Person.call(self);
+            
+            self.pAge = 18;
+            self.eCompany = 'Currently unemployed';
+            self.ePosition = 'Currently no position';
+        };
+
+        // Inheriting from person
+        Employee.prototype = Object.create(Person.prototype);
+
+        // Overriding sayHello method from person
+        Employee.prototype.sayHello = function() {
+            var self = this;
+            return 'Hello, my name is ' + this.pName + '. ' + 
+                   'My age is ' + this.pAge + '. ' + 
+                   'I am working at ' + self.eCompany +
+                   ' and my position is ' + self.ePosition;
+        };
+
+        // Helper variables to get buttons and inputs
+        // Divs for showing info
+        var $personInfo = $('div#classShowCase #person');
+        var $empInfo = $('div#classShowCase #employee');
+        
+        // Create buttons
+        var $personBtn = $('p#classDemo #createPerson');
+        var $employeeBtn = $('p#classDemo #createEmployee');
+        var $clearBtn = $('p#classDemo #clearInputs');
+
+        // Input fields
+        var $nameInput = $('p#classDemo #personName');
+        var $ageInput = $('p#classDemo #personAge');
+        var $companyInput = $('p#classDemo #empCompany');
+        var $positionInput = $('p#classDemo #empPosition');
+
+        // Hiding divs for info
+        $personInfo.hide();
+        $empInfo.hide();
+
+        // Clears inputs
+        $clearBtn.bind('click', function() {
+            $nameInput.val('');
+            $ageInput.val('');
+            $companyInput.val('');
+            $positionInput.val('');
+
+            $personInfo
+                .children('.sayHello')
+                .text('');
+
+            $personInfo
+                .children('.toJson')
+                .text('');
+
+            $empInfo
+                .children('.sayHello')
+                .text('');
+
+            $empInfo
+                .children('.toJson')
+                .text('');
+
+            $personInfo.hide();
+            $empInfo.hide();
+        });
+
+        // Binding create buttons for custom functions - here
+        $personBtn.bind('click', function() {
+            var person = new Person();
+            if ($nameInput.val()) {
+                person.pName = $nameInput.val();
+            }
+            if ($ageInput.val()) {
+                person.pAge = parseInt($ageInput.val(), 10);
+            }
+
+            $personInfo
+                .children('.sayHello')
+                .text(person.sayHello());
+
+            $personInfo
+                .children('.toJson')
+                .text('JSON output: ' + JSON.stringify(person));
+
+            $personInfo.show(500);
+        });
+
+        $employeeBtn.bind('click', function() {
+            var employee = new Employee();
+            if ($nameInput.val()) {
+                employee.pName = $nameInput.val();
+            }
+            if ($ageInput.val()) {
+                employee.pAge = parseInt($ageInput.val(), 10);
+            }
+            if ($companyInput.val()) {
+                employee.eCompany = $companyInput.val();
+            }
+            if ($positionInput.val()) {
+                employee.ePosition = $positionInput.val();
+            }
+
+            $empInfo
+                .children('.sayHello')
+                .text(employee.sayHello());
+            $empInfo
+                .children('.toJson')
+                .text('JSON output: ' + JSON.stringify(employee));
+
+            $empInfo.show(500);
+        });
+    });
+})(jQuery);
+</pre>
+    </div>
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Demos/classDemo.js")"></script>
+}

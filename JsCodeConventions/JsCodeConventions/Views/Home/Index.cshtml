@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured
+{
+    <div class="span9">
+        <p>
+            Dies ist eine Sammlung von Konventionen und Hinweisen zum Arbeiten mit JavaScript für die Firma busitec GmbH.
+        </p>
+    </div>
+}
+<div class="span9">
+    <h3>@ViewBag.Message</h3>
+    <p>
+        <h5>Getting Started</h5>
+            Namensrichtlinien in JavaScript
+            @Html.ActionLink("Weiter...", "Conventions", "Home")
+    </p>
+
+    <p>
+        <h5>Klassen in JavaScript</h5>
+            Objekt-orientiertes Arbeiten mit "Prototypes" in JavaScript
+            @Html.ActionLink("Weiter...", "Classes", "Home")
+    </p>
+
+    <p>
+        <h5>CoffeeScript</h5>
+            Hinweise zum Arbeiten mit CoffeeScript
+            @Html.ActionLink("Weiter...", "CoffeeScript", "Home")
+    </p>
+
+    <p>
+        <h5>Nützliche Libraries</h5>
+            Nützliche Libraries für unterschiedliche Anwendungen
+            @Html.ActionLink("Weiter...", "Libraries", "Home")
+    </p>
+</div>
