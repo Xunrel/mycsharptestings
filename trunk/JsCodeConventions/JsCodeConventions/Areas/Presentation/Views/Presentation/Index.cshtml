@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Presentation Index";
+    Layout = "~/Areas/Presentation/Views/Shared/_Layout.cshtml";
+}
+
+@section head
+{
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/deck.core.css")"/>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/deck/neon.css")"/>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/horizontal-slide.css")"/>
+}
+<div class="presentation">
+    <article class="deck-container">
+        <section class="slide">
+            Slide 1
+        </section>
+
+        <section class="slide">
+            Slide 2
+        </section>
+
+        <section class="slide">
+            Slide 3
+        </section>
+
+        <section class="slide">
+            Slide 4
+        </section>
+
+        <section class="slide">
+            Slide 5
+        </section>
+
+        <section class="slide">
+            Slide 6
+        </section>
+
+        <section class="slide">
+            Slide 7
+        </section>
+
+        <section class="slide">
+            Slide 8
+        </section>
+
+        <section class="slide">
+            Slide 9
+        </section>
+
+        <section class="slide">
+            Slide 10
+        </section>
+
+        <section class="slide">
+            Slide 11
+        </section>
+
+        <section class="slide">
+            Slide 12
+        </section>
+
+        <section class="slide">
+            Slide 13
+        </section>
+
+        <section class="slide">
+            Slide 14
+        </section>
+
+        <section class="slide">
+            Slide 15
+        </section>
+    </article>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/deck.core.js")"></script>
+    <script type="text/javascript">
+        $('.presentation')
+            .css('padding-top', '50px');
+
+        $('section')
+            .css('padding', '25px');
+
+        $('article')
+            .css('margin-left', 'auto')
+            .css('height', '540px')
+            .css('width', '960px');
+
+        $.deck('.slide');
+    </script>
+}
