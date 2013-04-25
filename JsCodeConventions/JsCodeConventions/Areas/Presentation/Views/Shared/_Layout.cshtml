@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    
+    <footer>
+        <p>
+            Presentation created with <a href="http://imakewebthings.com/deck.js/" target="_blank">deck.js</a>
+        </p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -183,6 +183,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Presentation\Controllers\PresentationController.cs" />
+    <Compile Include="Areas\Presentation\PresentationAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -197,6 +199,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Copy of Site.css" />
+    <Content Include="Content\deck.core.css" />
+    <Content Include="Content\deck\neon.css" />
+    <Content Include="Content\deck\swiss.css" />
+    <Content Include="Content\horizontal-slide.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\SyntaxHighlighter\shCore.css" />
@@ -276,11 +282,16 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\deck\web-2.0.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\Presentation\Views\Web.config" />
+    <Content Include="Areas\Presentation\Views\Presentation\Index.cshtml" />
+    <Content Include="Areas\Presentation\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\deck.core.js" />
     <Content Include="Scripts\Demos\classDemo.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -361,6 +372,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Presentation\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
