@@ -27,6 +27,23 @@
 &lt;/html&gt;
 </pre>
     
+    <h5>$.noConflict()</h5>
+    <p>
+        Da man unter Umständen mit mehr Libraries arbeitet als nur jQuery, muss 
+        man sicher gehen, dass vor allem das $-Präfix nicht mehrfach belegt ist.
+        Dafür bietet jQuery die Funktion noConflict() an, die dazu dient, dass 
+        man mit mehrere Libraries arbeiten kann, die ebenfalls das $-Präfix nutzen 
+        (bspw. <a href="http://mootools.net/" target="_blank">MooTools</a>).
+    </p>
+    <pre class="prettyprint">
+$.noConflict();
+jQuery(document).ready(function($) {
+    <span class="label label-info">jQuery Code der $ als Präfix nutzt</span>
+});
+
+<span class="label label-info">Code aus anderer Library der $ als Präfix nutzt</span>
+</pre>
+
     <h5>Selektoren</h5>
     <p>
         Nun kann man entweder in der HTML-Datei selber oder in einer externen 
@@ -45,7 +62,7 @@
         Dementsprechend gibt es drei Notationen, wie man Elemente mit Hilfe der 
         jQuery-Selektoren finden kann:
     </p>
-    <pre>
+    <pre class="prettyprint">
 <span class="label label-info">Tag-Name</span>
 // Nur der Tag-Name (z.B. 'div' für alle &lt;div&gt;-Elemente)
 var $pTags = $('p');
@@ -119,9 +136,17 @@ var $checkedInputs = $('input:checked');
         Grund dafür ist, dass man an einem jQuery-Element(-Array) weitere jQuery-Funktionen 
         nutzen kann (siehe dazu <a href="Conventions#whitespaces">'Method-Chaining'</a>).
     </p>
+    
+    <h3>TBD</h3>
+    <p>
+        <ul>
+            <li>Events</li>
+            <li>RequireJS</li>
+            <li>KnockoutJS</li>
+        </ul>
+    </p>
 
-
-    <h3 id="events">Events</h3>
+    @*<h3 id="events">Events</h3>
     <p>
         Im Laufe eines Projektes kann es unter Umständen notwendig sein, dass 
         man auf bestimmte Ereignisse in der Applikation client-seitig achtet.
@@ -135,15 +160,15 @@ var $checkedInputs = $('input:checked');
     <h3 id="knockoutJs">KnockoutJS</h3>
     <p>
         
-    </p>
+    </p>*@
 </div>
 
 <div class="span3">
     <ul class="nav nav-tabs nav-stacked affix">
         <li><a href="#jQuery">jQuery</a></li>
-        <li><a href="#events">Events</a></li>
+        @*<li><a href="#events">Events</a></li>
         <li><a href="#requireJs">RequireJS</a></li>
-        <li><a href="#knockoutJs">knockoutJS</a></li>
+        <li><a href="#knockoutJs">knockoutJS</a></li>*@
     </ul>
 </div>
 @section scripts {
