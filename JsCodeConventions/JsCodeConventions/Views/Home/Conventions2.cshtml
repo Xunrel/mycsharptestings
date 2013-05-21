@@ -163,12 +163,14 @@ var $checkedInputs = $('input:checked');
     <pre class="prettyprint" id="bgEvent">
 ;(function($) {
     $(document).ready(function() {
-        var $demoBgBtn = $('#demoBgBtn');
-        var $bgElement = $('#bgEvent');
-        var $unbindBtn = $('#unbindEventsBtn');
-        var $bindBtn = $('#bindEventsBtn');
-
+        <span class="label label-info">// Variablen Deklaration</span>
+        var $demoBgBtn = $('#demoBgBtn'),
+            $bgElement = $('#bgEvent'),
+            $unbindBtn = $('#unbindEventsBtn'),
+            $bindBtn = $('#bindEventsBtn');
+        
         $bindBtn.on('click', function() {
+            <span class="label label-info">// Funktion hinzuf&uuml;gen</span>
             $demoBgBtn.on('click', function () {
                 if ($bgElement.css('background-color') === 'rgb(245, 245, 245)') {
                     $bgElement
@@ -183,9 +185,11 @@ var $checkedInputs = $('input:checked');
         });
 
         $unbindBtn.on('click', function() {
+            <span class="label label-info">// Entfernen der Funktion</span>
             $demoBgBtn.off();
         });
-
+        
+        <span class="label label-info">// Initiales Hinzuf&uuml;gen der Funktionen</span>
         $bindBtn.trigger('click');
     });
 })(jQuery);

@@ -1,9 +1,9 @@
 ﻿;(function($) {
     $(document).ready(function() {
-        var $demoBgBtn = $('#demoBgBtn');
-        var $bgElement = $('#bgEvent');
-        var $unbindBtn = $('#unbindEventsBtn');
-        var $bindBtn = $('#bindEventsBtn');
+        var $demoBgBtn = $('#demoBgBtn'),
+            $bgElement = $('#bgEvent'),
+            $unbindBtn = $('#unbindEventsBtn'),
+            $bindBtn = $('#bindEventsBtn');
 
         $bindBtn.on('click', function() {
             $demoBgBtn.on('click', function () {
