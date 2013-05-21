@@ -10,7 +10,7 @@
 
         $srcView.hide();
 
-        $srcBtn.bind('click', function() {
+        $srcBtn.on('click', function() {
             $srcView.slideToggle();
         });
 
@@ -78,7 +78,7 @@
         $empInfo.toggle();
 
         // Clears inputs
-        $clearBtn.bind('click', function() {
+        $clearBtn.on('click', function() {
             $nameInput.val('');
             $ageInput.val('');
             $companyInput.val('');
@@ -105,7 +105,7 @@
         });
 
         // Binding create buttons for custom functions - here
-        $personBtn.bind('click', function() {
+        $personBtn.on('click', function() {
             var person = new Person();
             if ($nameInput.val()) {
                 person.pName = $nameInput.val();
@@ -124,7 +124,7 @@
             $personInfo.show(500);
         });
 
-        $employeeBtn.bind('click', function() {
+        $employeeBtn.on('click', function() {
             var employee = new Employee();
             if ($nameInput.val()) {
                 employee.pName = $nameInput.val();
