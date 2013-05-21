@@ -1,22 +1,21 @@
 ﻿;(function($) {
     $(document).ready(function() {
         var $demoBgBtn = $('#demoBgBtn');
-        var $resetBtn = $('#resetBgBtn');
         var $bgElement = $('#bgEvent');
         var $unbindBtn = $('#unbindEventsBtn');
         var $bindBtn = $('#bindEventsBtn');
 
         $bindBtn.on('click', function() {
             $demoBgBtn.on('click', function () {
-                $bgElement
-                    .css('background-color', '#3a87ad')
-                    .css('color', 'white');
-            });
-
-            $resetBtn.on('click', function () {
-                $bgElement
-                    .css('background-color', '#f5f5f5')
-                    .css('color', '#333');
+                if ($bgElement.css('background-color') === 'rgb(245, 245, 245)') {
+                    $bgElement
+                        .css('background-color', 'rgb(58, 135, 173)')
+                        .css('color', 'white');
+                } else {
+                    $bgElement
+                        .css('background-color', 'rgb(245, 245, 245)')
+                        .css('color', '#333');
+                }
             });
         });
 
