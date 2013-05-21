@@ -4,7 +4,7 @@
 <div class="span9">
     <h2>@ViewBag.Title</h2>
     <p>
-        Die Syntax für CoffeeScript findet man unter <a href="http://coffeescript.org/">http://coffeescript.org/</a>
+        Die Syntax für CoffeeScript findet man unter <a href="http://coffeescript.org/" target="_blank">http://coffeescript.org/</a>
     </p>
     <h3>Generelle Hinweise</h3>
     <p>
@@ -27,13 +27,14 @@ myObject = {
 </pre>
     
     <p>
-        Das Schlüsselwort 'var' wird automatisch vom CoffeeScript-Compiler hinzugefügt und das Hoisting wird dabei beachtet.
+        Das Schlüsselwort 'var' wird automatisch vom CoffeeScript-Compiler hinzugefügt 
+        und das Hoisting wird dabei beachtet.
     </p>
     
     <p>
-        Wird innerhalb einer Intendierung kein 'return' genutzt, so wird die letzte Zeile zurückgegeben. 
-        Will man dies verhindern (ergo kein return-Statment haben wollen) muss man in der letzten Zeile 
-        einer Funktion nur das Schlüsselwort 'return' schreiben.
+        Wird innerhalb einer Intendierung kein 'return' genutzt, so wird die letzte 
+        Zeile zurückgegeben. Will man dies verhindern (ergo kein return-Statment 
+        haben wollen) muss man in der letzten Zeile einer Funktion nur das Schlüsselwort 'return' schreiben.
     </p>
     <pre>
 class MyClass
@@ -66,9 +67,14 @@ class MyClass
 
 }).call(this);
 </pre>
+    <p>
+        <span class="label label-info">Anmerkung:</span> Klassen in CoffeeScript m&uuml;ssen 
+        returned werden.
+    </p>
 
     <p>
-        Anstelle der JavaScript Vergleichs-Operatoren sollten die CoffeeScript Äquivalente genutzt werden.
+        Anstelle der JavaScript Vergleichs-Operatoren sollten die CoffeeScript 
+        Äquivalente genutzt werden.
     </p>
     <table class="table table-striped">
         <thead>
