@@ -23,7 +23,7 @@
         &lt;script type="text/javascript" src="../path/to/jquery.js"&gt;&lt;/script&gt;
     &lt;/head&gt;
 
-    &lt;!-- Restliches DOM wurde aus Gründen der Übersichtlichkeit entfernt. --&gt;
+    &lt;!-- Restliches DOM wurde aus Gr&uuml;nden der &uuml;bersichtlichkeit entfernt. --&gt;
 &lt;/html&gt;
 </pre>
     
@@ -31,7 +31,7 @@
     <p>
         Da man unter Umständen mit mehr Libraries arbeitet als nur jQuery, muss 
         man sicher gehen, dass vor allem das $-Präfix nicht mehrfach belegt ist.
-        Dafür bietet jQuery die Funktion noConflict() an, die dazu dient, dass 
+        Daf&uuml;r bietet jQuery die Funktion noConflict() an, die dazu dient, dass 
         man mit mehrere Libraries arbeiten kann, die ebenfalls das $-Präfix nutzen 
         (bspw. <a href="http://mootools.net/" target="_blank">MooTools</a>).
     </p>
@@ -52,7 +52,7 @@ jQuery(document).ready(function($) {
         bedeutet wie: jQuery, gib mir alle DOM-Elemente mit dem Tag-Namen 'p'.
     </p>
     <p>
-        Das $-Zeichen steht in diesem Fall dafür, dass Funktionen von jQuery genutzt 
+        Das $-Zeichen steht in diesem Fall daf&uuml;r, dass Funktionen von jQuery genutzt 
         werden. Der folgende optionale Parameter ist der sogenannte Selektor und 
         kann entweder der Name eines Tag-Elements <span class="label">&lt;TAG-NAME&gt;</span> sein, 
         eine vergebene ID eines Tags <span class="label">&lt;div id="ID-NAME"&gt;</span> oder eine vergebene 
@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
     </p>
     <pre class="prettyprint">
 <span class="label label-info">Tag-Name</span>
-// Nur der Tag-Name (z.B. 'div' für alle &lt;div&gt;-Elemente)
+// Nur der Tag-Name (z.B. 'div' f&uuml;r alle &lt;div&gt;-Elemente)
 var $pTags = $('p');
 
 <span class="label label-info">Eindeutige ID</span>
@@ -77,8 +77,8 @@ var $myClasses = $('.myClasses');
 </pre>
     
     <p>
-        Man kann auch Selektoren verknüpfen, wenn man bspw. &ouml;fters eine Klasse 
-        für mehrere Elemente benutzt, aber einigen dieser Elemente auch IDs vergibt.
+        Man kann auch Selektoren verkn&uuml;pfen, wenn man bspw. &ouml;fters eine Klasse 
+        f&uuml;r mehrere Elemente benutzt, aber einigen dieser Elemente auch IDs vergibt.
     </p>
     <pre class="prettyprint">
 <span class="label label-info">Selektor-Kombination</span>
@@ -87,7 +87,7 @@ var $importantDiv = $('div.redBorder#importantDiv');
     
     <p>
         In diesem Beispiel wird nach dem div-Element gesucht, welches die Klasse 
-        "redBorder" hat und die ID "important" div. So würde nun also das Element 
+        "redBorder" hat und die ID "important" div. So w&uuml;rde nun also das Element 
         <span class="label label-success">&lt;div class="redBorder" id="importantDiv"&gt;</span> 
         selektiert werden, nicht jedoch 
         <span class="label label-important">&lt;div class="redBorder" id="author"&gt;</span>.
@@ -95,7 +95,7 @@ var $importantDiv = $('div.redBorder#importantDiv');
     <p></p>
     <h5>Selektoren - die Zweite!</h5>
     <p>
-        Neben der Selektion über IDs und Klassen-Namen hat man auch die Möglichkeit 
+        Neben der Selektion &uuml;ber IDs und Klassen-Namen hat man auch die Möglichkeit 
         anhand der Attribute eines Elements zu suchen.
     </p>
     <pre class="prettyprint">
@@ -113,18 +113,17 @@ var $valueFiveInputs = $('input[value$="Last"]');
 </pre>
     
     <p>
-        Über diese Attribut-Selektoren hinaus gibt es noch weitere Attribut Selektoren 
-        und können natürlich auch für andere Attribute eines Tags verwendet werden.
+        &uuml;ber diese Attribut-Selektoren hinaus gibt es noch weitere Attribut Selektoren 
+        und können nat&uuml;rlich auch f&uuml;r andere Attribute eines Tags verwendet werden.
     </p>
     <p>
-        Darüber hinaus gibt es auch Pseudo-Selektoren, wie auch in CSS.
+        Dar&uuml;ber hinaus gibt es auch Pseudo-Selektoren, wie auch in CSS.
     </p>
     <pre class="prettyprint">
 // Suche alle Input-Elemente, die als Attribut 'checked' den Wert 'checked' haben
 // (also alle Checkbox-Inputs, die ausgewählt worden sind)
 var $checkedInputs = $('input:checked');
 </pre>
-    
     <h5>Konvention</h5>
     <p>
         Damit man in seinem Code erkennen kann, ob die gerade verwendete Variable 
@@ -133,23 +132,89 @@ var $checkedInputs = $('input:checked');
         kennzeichnen.
     </p>
     <p>
-        Grund dafür ist, dass man an einem jQuery-Element(-Array) weitere jQuery-Funktionen 
+        Grund daf&uuml;r ist, dass man an einem jQuery-Element(-Array) weitere jQuery-Funktionen 
         nutzen kann (siehe dazu <a href="Conventions#whitespaces">'Method-Chaining'</a>).
     </p>
     
-    <h3>TBD</h3>
+    <h3 id="events">Events</h3>
+    <p>
+        Im Laufe eines Projektes kann es unter Umständen notwendig sein, dass 
+        man auf bestimmte Ereignisse in der Applikation achtet oder Funktionen 
+        zu bestehenden Ereignissen hinzuf&uuml;gen möchte.
+    </p>
+    <p>
+        Um Funktionen an Ereignisse zu binden, kann man jQuery's .on() oder .bind() 
+        Funktion nutzen.<br />
+    </p>
+    <p>
+        Möchte man zu einer bestimmten Zeit, dass eine hinzugef&uuml;gte Funktion bei 
+        einem bestimmten Ereignis nicht mehr greift, verwendet man dazu die Funktion 
+        .off() oder .unbind() von jQuery.
+    </p>
+    <p>
+        Der Unterschied zwischen den Funktionen .on() und .bind() bzw. .off() und 
+        .unbind() liegt darin, dass man .on() und .off() einen Selektor als Parameter 
+        mit &uuml;bergeben kann.<br />
+        Dadurch kann man explizit die Elemente rausnehmen, die die Funktion erhalten, 
+        bzw. verlieren sollen, während mit .bind() und .unbind() nur dem Element, 
+        dass man gerade verwendet, Funktionen zu Eregnissen hinzuf&uuml;gen oder entfernen 
+        kann.
+    </p>
+    <pre class="prettyprint" id="bgEvent">
+;(function($) {
+    $(document).ready(function() {
+        var $demoBgBtn = $('#demoBgBtn');
+        var $resetBtn = $('#resetBgBtn');
+        var $bgElement = $('#bgEvent');
+        var $unbindBtn = $('#unbindEventsBtn');
+        var $bindBtn = $('#bindEventsBtn');
+
+        $bindBtn.on('click', function() {
+            $demoBgBtn.on('click', function () {
+                $bgElement
+                    .css('background-color', '#3a87ad')
+                    .css('color', 'white');
+            });
+
+            $resetBtn.on('click', function () {
+                $bgElement
+                    .css('background-color', '#f5f5f5')
+                    .css('color', '#333');
+            });
+        });
+
+        $unbindBtn.on('click', function() {
+            $demoBgBtn.off();
+        });
+
+        $bindBtn.trigger('click');
+    });
+})(jQuery);
+</pre>
+    <p>
+        <input class="btn btn-inverse" type="button" id="demoBgBtn" value="Demo" style="width: 75px;" />
+        <input class="btn btn-inverse" type="button" id="resetBgBtn" value="Reset" style="width: 75px;" />
+    </p>
+    <p>
+        <input class="btn btn-success" type="button" id="bindEventsBtn" value="Bind" style="width: 75px;" />
+        <input class="btn btn-danger" type="button" id="unbindEventsBtn" value="Unbind" style="width: 75px;" />
+    </p>
+    
+    <h5>Konvention</h5>
+    <p>
+        F&uuml;r eine einheitliche Nutzung zum Hinzuf&uuml;gen und Entfernen von 
+        Funktionen an Eregnissen sollte man die Funktionen .on() und .off() nutzen.<br />
+        Der Vorteil dieser jQuery Funktionen ist auch, dass hier auf die unterschiedlichen 
+        EventAttachment Funktionen unterschiedlicher Browser geachtet wird und 
+        man sich darum nicht mehr selber k&uuml;mmern muss.
+    </p>
+    
+    @*<h3>TBD</h3>
     <p>
         <ul>
-            <li>Events</li>
             <li>RequireJS</li>
             <li>KnockoutJS</li>
         </ul>
-    </p>
-
-    @*<h3 id="events">Events</h3>
-    <p>
-        Im Laufe eines Projektes kann es unter Umständen notwendig sein, dass 
-        man auf bestimmte Ereignisse in der Applikation client-seitig achtet.
     </p>
     
     <h3 id="requireJs">RequireJS</h3>
@@ -166,8 +231,8 @@ var $checkedInputs = $('input:checked');
 <div class="span3">
     <ul class="nav nav-tabs nav-stacked affix">
         <li><a href="#jQuery">jQuery</a></li>
-        @*<li><a href="#events">Events</a></li>
-        <li><a href="#requireJs">RequireJS</a></li>
+        <li><a href="#events">Events</a></li>
+        @*<li><a href="#requireJs">RequireJS</a></li>
         <li><a href="#knockoutJs">knockoutJS</a></li>*@
     </ul>
 </div>
