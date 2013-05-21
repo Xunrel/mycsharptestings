@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converter\SyndicationConverter.cs" />
     <Compile Include="Interfaces\IRssReader.cs" />
     <Compile Include="Model\Channel.cs" />
     <Compile Include="Interfaces\IChannel.cs" />
