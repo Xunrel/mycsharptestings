@@ -277,10 +277,15 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\CoffeeScript1.coffee" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CoffeeScript1.js">
+      <DependentUpon>CoffeeScript1.coffee</DependentUpon>
+    </Content>
     <Content Include="Scripts\Demos\classDemo.js" />
+    <Content Include="Scripts\Demos\conventions2.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
