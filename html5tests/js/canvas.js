@@ -1,4 +1,4 @@
-//(function() {
+(function() {
 	var ctx;
 	var factorValue = 1;
 	var fontFamily = '65px "Gill Sans Ultra Bold", sans-serif';
@@ -76,10 +76,12 @@
 		ctx.fill();
 	};
 	
-	var changeScale = function(val) {
-		factorValue = val / 100;
+	var changeScale = function(event) {
+		factorValue = event.target.value / 100;
 		drawLogo();
 	}
 	
+	var scaler = document.getElementById('scaleSlider');
+	scaler.addEventListener('change', changeScale, false);
 	drawLogo();
-//})();
+})();
