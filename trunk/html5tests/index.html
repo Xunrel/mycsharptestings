@@ -2,14 +2,15 @@
 <html>
 <head>
 	<title>HTML5 Tests</title>
+	
 </head>
 
 <body>
-	<div>
-		<canvas id="html5canvas" width="600" height="400">
-			No canvas available
-		</canvas>
-	</div>
-	<script type="text/javascript" src="js/canvas.js"></script>
+	<canvas id="html5canvas" width="600" height="400">
+		No canvas available
+	</canvas>
+	
+	Scale %: <input id="scaleSlider" type="range" min="10" max="100" value="100" onChange="changeScale(this.value)" step="1" />
 </body>
+	<script type="text/javascript" src="js/canvas.js"></script>
 </html>
