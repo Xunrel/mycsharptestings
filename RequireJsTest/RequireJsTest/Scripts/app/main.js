@@ -1,4 +1,10 @@
-﻿require(['entities/person', 'entities/company'], function (Person, Company) {
+﻿require.config({
+    paths: {
+        'jquery' : '../jquery-1.8.2'
+    }
+});
+
+require(['entities/person', 'entities/company', 'jquery'], function (Person, Company, $) {
     console.log('Trying to fetch deps for main');
     var company = new Company('busitec GmbH');
 
