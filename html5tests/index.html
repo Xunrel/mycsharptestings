@@ -2,7 +2,12 @@
 <html>
 <head>
 	<title>HTML5 Tests</title>
-	
+	<style type="text/css">
+		div.reverse {
+			display: -webkit-box;
+			-webkit-box-direction: reverse;
+		}
+	</style>
 </head>
 
 <body>
@@ -11,6 +16,11 @@
 	</canvas>
 	
 	Scale %: <input id="scaleSlider" type="range" min="10" max="100" value="100" step="1" />
-</body>
+	<div class="reverse">
+		<p>1</p>
+		<p>2</p>
+	</div>
+	
 	<script type="text/javascript" src="js/canvas.js"></script>
+</body>
 </html>
