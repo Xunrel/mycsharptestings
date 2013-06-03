@@ -5,7 +5,26 @@
 	<style type="text/css">
 		div.reverse {
 			display: -webkit-box;
-			-webkit-box-direction: reverse;
+			-webkit-box-direction: normal;
+		}
+		#p1
+		{
+			border: 1px solid #000;
+			-moz-box-flex:1.0; /* Firefox */
+			-webkit-box-flex:1.0; /* Safari and Chrome */
+			-ms-flex:1.0; /* Internet Explorer 10 */
+			box-flex:1.0;
+			border:1px solid red;
+		}
+
+		#p2
+		{
+			border: 1px solid #000;
+			-moz-box-flex:2.0; /* Firefox */
+			-webkit-box-flex:2.0; /* Safari and Chrome */
+			-ms-flex:2.0; /* Internet Explorer 10 */
+			box-flex:2.0;
+			border:1px solid blue;
 		}
 	</style>
 </head>
@@ -17,8 +36,8 @@
 	
 	Scale %: <input id="scaleSlider" type="range" min="10" max="100" value="100" step="1" />
 	<div class="reverse">
-		<p>1</p>
-		<p>2</p>
+		<p id="p1">1</p>
+		<p id="p2">2</p>
 	</div>
 	
 	<script type="text/javascript" src="js/canvas.js"></script>
