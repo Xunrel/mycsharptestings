@@ -1,0 +1,20 @@
+﻿@model AjaxDialogs.Models.ValueListViewModel
+
+@{
+    ViewBag.Title = "List";
+    var ajaxOpts = new AjaxOptions
+                       {
+                           UpdateTargetId = "valueTable"
+                       };
+}
+
+<h2>List</h2>
+
+<div id="valueTable">
+    @Html.Partial("_ValueList", Model.Values)
+</div>
+
+<div class="pager">
+    @*@Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))*@
+    @Ajax.AjaxPageLinks(Model.PagingInfo, x=> Url.Action("AjaxList", new { page = x }), ajaxOpts, new { @class = "modal-link" })
+</div>
