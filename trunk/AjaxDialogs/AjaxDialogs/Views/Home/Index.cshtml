@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Index";
+    var ajaxOpts = new AjaxOptions
+                       {
+                           UpdateTargetId = "modalDialog"
+                       };
+}
+
+<h2>Index</h2>
+
+<p>
+    @Ajax.ActionLink("Show Values", "GetValues", new { controller = "Home" }, ajaxOpts, new { @class = "modal-link" })
+</p>
+
+<div id="modalDialog">
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var $dialog = $('#modalDialog');
+            $dialog.dialog({
+                modal: true,
+                autoOpen: false,
+                height: 500,
+                width: 900,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#modalDialog').dialog('close');
+                    });
+                }
+            });
+
+            $('.modal-link').on('click', function(event) {
+                $dialog.dialog('open');
+            });
+        });
+    </script>
+}
