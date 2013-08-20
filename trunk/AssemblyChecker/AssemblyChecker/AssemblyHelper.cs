@@ -13,7 +13,7 @@ using System.Reflection;
 
 namespace AssemblyChecker
 {
-    public static class AssemblyChecker
+    public static class AssemblyHelper
     {
         public static bool IsAssemblyDebugBuild(string filepath)
         {

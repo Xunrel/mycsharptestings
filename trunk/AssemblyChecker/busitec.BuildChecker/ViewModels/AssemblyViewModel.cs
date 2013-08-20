@@ -1,4 +1,5 @@
-﻿using busitec.BuildChecker.Models;
+﻿using AssemblyChecker;
+using busitec.BuildChecker.Models;
 
 namespace busitec.BuildChecker.ViewModels
 {
@@ -10,19 +11,12 @@ namespace busitec.BuildChecker.ViewModels
 
         public void CheckAssemblies()
         {
-            if (IsDirectory)
-            {
-                if (IncludeSubDirectories)
-                {
-                    
-                }
-            }
-            var result = CheckAssembly(AssemblyModel.PathToCheck);
+            // TODO implement logic for directories, subdirectories and simple file check
         }
 
         private bool CheckAssembly(string filepath)
         {
-            return AssemblyChecker.AssemblyChecker.IsAssemblyDebugBuild(filepath);
+            return AssemblyHelper.IsAssemblyDebugBuild(filepath);
         }
     }
 }
