@@ -1,0 +1,23 @@
+﻿<Page x:Class="busitec.BuildChecker.Views.MainView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="MainView">
+
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="280" Margin="10,10,0,0" VerticalAlignment="Top" Width="280">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="239*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Direcotry" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="73,14,0,0" TextWrapping="Wrap" Text="Please enter a directory..." VerticalAlignment="Top" Width="197"/>
+            <Label Content="Results" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="260"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,41,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Here will be the results..." VerticalAlignment="Top" Height="173" Width="260" Padding="5"/>
+        </Grid>
+
+    </Grid>
+</Page>
