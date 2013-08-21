@@ -3,20 +3,24 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Design="clr-namespace:busitec.BuildChecker.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-	Title="MainView">
+      d:DesignHeight="296" d:DesignWidth="547"
+      d:DataContext="{d:DesignInstance Design:AssemblyViewModel}"
+    Title="MainView">
 
-    <Grid>
-        <Grid HorizontalAlignment="Left" Height="280" Margin="10,10,0,0" VerticalAlignment="Top" Width="280">
+    <Grid Margin="0,0,-150,0" HorizontalAlignment="Left" Width="547">
+        <Grid HorizontalAlignment="Left" Height="280" Margin="10,10,0,0" VerticalAlignment="Top" Width="527">
             <Grid.RowDefinitions>
-                <RowDefinition Height="60*"/>
-                <RowDefinition Height="239*"/>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="29*"/>
             </Grid.RowDefinitions>
-            <Label Content="Direcotry" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="73,14,0,0" TextWrapping="Wrap" Text="Please enter a directory..." VerticalAlignment="Top" Width="197"/>
-            <Label Content="Results" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="260"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,41,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Here will be the results..." VerticalAlignment="Top" Height="173" Width="260" Padding="5"/>
+            <Label Content="Direcotry" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="58"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="73,14,0,0" TextWrapping="Wrap" Text="{Binding AssemblyModel.PathToCheck}" VerticalAlignment="Top" Width="363"/>
+            <Label Content="Results" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="357" Height="26"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,41,0,-11" Grid.Row="1" TextWrapping="Wrap" Text="Here will be the results..." VerticalAlignment="Top" Height="173" Width="357" Padding="5"/>
+            <CheckBox Content="Directory" HorizontalAlignment="Left" Margin="441,17,0,0" VerticalAlignment="Top" Width="76" Height="16"/>
+            <Button Command="{Binding CheckAssembly}" Content="Check" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
         </Grid>
 
     </Grid>
