@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Watch the RequireJS example in Action", "Example1")
+
+@section scripts
+{
+    <script type="text/javascript" data-main="/Scripts/app/main" src="@Url.Content("~/Scripts/libs/require.js")"></script>
+}
